@@ -55,6 +55,22 @@ reset
 
 
 
+.rounded-button {
+  background-color: transparent;
+  border: 2px solid #4da6e7; /* Adjust border color as needed */
+  border-radius: 25px; /* Adjust border radius as needed */
+  color: #4da6e7;
+  padding: 10px 30px;
+  margin : 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.rounded-button:hover {
+  background-color: #4da6e7;
+  color: #fff;
+}
 
 
 
