@@ -7,11 +7,11 @@ const verify_certificate = async ()=>{
             const certificateId = document.getElementById('idField').value;
             const certificateTable = document.getElementById('certificateTable')
 
-            loadingText.textContent="Loading...";
             if (!certificateId) {
                 alert('Please enter a certificate ID.');
                 return;
             }
+            loadingText.textContent="Loading...";
 
             try {
 
