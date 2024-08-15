@@ -15,15 +15,10 @@ const verify_certificate = async ()=>{
 
             try {
 
-                const response = await fetch('https://script.google.com/macros/s/AKfycbxRe02pDU20U792lyUrox09Rb3t481cSrOLGcvA2JfKp5L0EyO--CcAtin4e55G8bSt/exec?certificate_id='+certificateId);
+                const response = await fetch('https://script.google.com/macros/s/AKfycbyxS5uy9YEkjoaIjaAkpnKl7rtQKsZk8qcfVa7NlIHFo3yssSIZxjfiJcItePyGK6AS/exec?certificate_id='+certificateId);
                 const data = await response.json();
 
                 loadingText.textContent="";
-
-                if (data.error) {
-                    alert(data.error); // Handle errors from the backend
-                    return;
-                }
 
                 // Clear existing table rows before adding new data
                 certificateTable.tBodies[0].innerHTML = '';
@@ -123,8 +118,7 @@ const verify_certificate = async ()=>{
                 certificateTable.tBodies[0].appendChild(tableRow15);
 
             } catch (error) {
-                console.error('Error fetching certificate:', error);
-                alert('An error occurred. Please try again later.' + error);
+               loadingText.textContent="No Data Found";
             }
         });
 
