@@ -1,41 +1,42 @@
 
-//    let res = await fetch("http://localhost:8080/getAllFeedback");
-//    res = await res.json();
-//    console.warn(res);
+function submitFeedback(){
+const form = document.getElementByName('contact');
 
-fetch("http://localhost:8080/getAllFeedback")
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error('Error:', error));
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
 
+    const name = form.elements['name'].value;
+    const email = form.elements['email'].value;
+    const subject = form.elements['subject'].value;
+    const message = form.elements['message'].value;
 
-//    var url = new URL('')
-//    var params = [['name', '35.696233'], ['email', '139.570431'],['subject', '35.696233'], ['message', '139.570431']]
-//
-//    url.search = new URLSearchParams(params).toString();
-//
-//    await fetch(url)
+    const data = {
+        name,
+        email,
+        subject,
+        message
+    };
 
-//    const data = {
-//      name: 'John Doe',
-//      email: 'johndoe@example.com',
-//      subject: 'issue',
-//      message : 'not able submit'
-//    };
+    fetch('http://localhost:8080/addFeedback', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Success:', data);
+        // Handle successful API call
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        // Handle API call error
+    });
+});
 
-//    const options = {
-//      method: 'POST',
-//      headers: {
-//        'Content-Type': 'application/json'
-//      },
-//      body: JSON.stringify(data)
-//    };
-
-//   fetch('http://localhost:8080/addFeedback',{
-//        method="POST",
-//        body: JSON.stringify(data),
-//        headers: {
-//                'Content-Type': 'application/json'
-//              },
-//   }).then((res)=>res.json())
-//     .then((data)=>console.log(data));
