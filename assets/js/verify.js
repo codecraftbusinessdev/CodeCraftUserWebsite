@@ -62,7 +62,7 @@ const verify_certificate = async ()=>{
                 `;
                 tableRow6.innerHTML = `
                     <th>Internship Duration</th>
-                    <td>${data.data[0].internship_duration}</td>
+                    <td>1 Month</td>
                 `;
                 tableRow7.innerHTML = `
                     <th>Internship Track</th>
