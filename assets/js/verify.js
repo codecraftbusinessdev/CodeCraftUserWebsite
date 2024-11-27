@@ -118,7 +118,7 @@ const verify_certificate = async ()=>{
                 certificateTable.tBodies[0].appendChild(tableRow15);
 
             } catch (error) {
-               loadingText.textContent="No Data Found";
+               loadingText.textContent="No Found or Internship is not completed yet";
             }
         });
 
