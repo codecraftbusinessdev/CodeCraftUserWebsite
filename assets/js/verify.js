@@ -40,6 +40,7 @@ const verify_certificate = async ()=>{
                 const tableRow15 = document.createElement('tr');
 
 
+
                 tableRow1.innerHTML = `
                     <th>Certificate ID</th>
                     <td>${data.data[0].certificate_id}</td>
