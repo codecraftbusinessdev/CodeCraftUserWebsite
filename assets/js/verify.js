@@ -15,7 +15,7 @@ const verify_certificate = async ()=>{
 
             try {
 
-                const response = await fetch('https://script.google.com/macros/s/AKfycbyxS5uy9YEkjoaIjaAkpnKl7rtQKsZk8qcfVa7NlIHFo3yssSIZxjfiJcItePyGK6AS/exec?certificate_id='+certificateId);
+                const response = await fetch('https://script.google.com/macros/s/AKfycbxVg8n2ihM2m0dzqmJNNCwmYCUoptsufF1KzePK2nZh1W1GehKIhn6-eXNlVgc0zLAO/exec?action=verify_certificate&certificate_id='+certificateId);
                 const data = await response.json();
 
                 loadingText.textContent="";
@@ -63,7 +63,7 @@ const verify_certificate = async ()=>{
                 `;
                 tableRow6.innerHTML = `
                     <th>Internship Duration</th>
-                    <td>1 Month</td>
+                    <td>${data.data[0].internship_duration}</td>
                 `;
                 tableRow7.innerHTML = `
                     <th>Internship Track</th>
